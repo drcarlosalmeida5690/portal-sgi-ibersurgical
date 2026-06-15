@@ -1,0 +1,4 @@
+[build]
+  base = "portal-sgi-ibersurgical/client"
+  command = "npm install --include=dev --legacy-peer-deps && npm run build"
+  publish = "dist/public"
