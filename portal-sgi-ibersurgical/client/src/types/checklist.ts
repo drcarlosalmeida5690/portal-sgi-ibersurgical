@@ -63,6 +63,8 @@ export const checklistsData: Record<string, Omit<ProcessChecklist, 'items'> & { 
       { id: 'p1-2', criterion: 'Objetivos de Calidad Definidos', evidence: 'P1_Objetivos_Calidad_vX_AAAAMM.pdf', standard: 'ISO9001' },
       { id: 'p1-3', criterion: 'Objetivos Ambientales Definidos', evidence: 'P1_Objetivos_Ambientales_vX_AAAAMM.pdf', standard: 'ISO14001' },
       { id: 'p1-4', criterion: 'Revisión por la Dirección Documentada', evidence: 'P1_Acta_Revision_Direccion_vX_AAAAMM.pdf', standard: 'SGI' },
+      { id: 'p1-5', criterion: 'Mapa de Procesos Documentado', evidence: 'AX-00-04_Mapa_de_Procesos_vX_AAAAMM.pdf', standard: 'SGI' },
+      { id: 'p1-6', criterion: 'Riesgos y Oportunidades Identificados', evidence: 'Excel_Riesgos_y_Oportunidades_vX_AAAAMM.xlsx', standard: 'ISO9001' },
     ],
   },
   p2: {
@@ -77,7 +79,7 @@ export const checklistsData: Record<string, Omit<ProcessChecklist, 'items'> & { 
   },
   p3: {
     processId: 'p3',
-    processName: 'Diseño y Desarrollo',
+    processName: 'Control de Recepción e Importaciones',
     items: [
       { id: 'p3-1', criterion: 'SOP Control de Recepción Vigente', evidence: 'P3_SOP_Control_Recepcion_SGI_vX_AAAAMM.pdf', standard: 'SGI' },
       { id: 'p3-2', criterion: 'Registros de Verificación de Calidad', evidence: 'P3_Registro_Verificacion_Albaranes_vX_AAAAMM.pdf', standard: 'ISO9001' },
