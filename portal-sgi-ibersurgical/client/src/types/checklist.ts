@@ -65,6 +65,7 @@ export const checklistsData: Record<string, Omit<ProcessChecklist, 'items'> & { 
       { id: 'p1-4', criterion: 'Revisión por la Dirección Documentada', evidence: 'P1_Acta_Revision_Direccion_vX_AAAAMM.pdf', standard: 'SGI' },
       { id: 'p1-5', criterion: 'Mapa de Procesos Documentado', evidence: 'AX-00-04_Mapa_de_Procesos_vX_AAAAMM.pdf', standard: 'SGI' },
       { id: 'p1-6', criterion: 'Riesgos y Oportunidades Identificados', evidence: 'Excel_Riesgos_y_Oportunidades_vX_AAAAMM.xlsx', standard: 'ISO9001' },
+      { id: 'p1-7', criterion: 'Auditoría Interna Realizada (últimos 12 meses)', evidence: 'PR-09_Informe_Auditoria_Interna_vX_AAAAMM.pdf', standard: 'ISO9001' },
     ],
   },
   p2: {
