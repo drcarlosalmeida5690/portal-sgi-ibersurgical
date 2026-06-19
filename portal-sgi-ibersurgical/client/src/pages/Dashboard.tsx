@@ -8,6 +8,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { ChecklistsState } from "@/types/checklist";
 import { FilterButtons, FilterStatus } from "@/components/FilterButtons";
 import { TasksOverview } from "@/components/TasksOverview";
+import { BackupControls } from "@/components/BackupControls";
 
 const processesMetadata = [
   { id: "p1", name: "Dirección Estratégica", icon: "🧭" },
@@ -141,6 +142,11 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
+        {/* Backup de Datos */}
+        <div className="mb-8">
+          <BackupControls />
+        </div>
+
         {/* Executive Summary */}
         <Card className="mb-8 border-0 shadow-md">
           <CardHeader className="bg-gradient-to-r from-blue-50 to-green-50 border-b">
@@ -291,3 +297,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
