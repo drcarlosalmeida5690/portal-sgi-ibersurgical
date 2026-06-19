@@ -37,12 +37,44 @@ export default function ProcessChecklist() {
     );
   }
 
-  // Obtener o inicializar el checklist del proceso
+  // Obtener o inicializar el checklist del proceso.
+  // Si ya existe un checklist guardado, se "mergea" con la definición actual
+  // de criterios (checklistsData) para añadir cualquier criterio nuevo sin
+  // perder los estados/observaciones ya guardados en los criterios existentes.
   const getProcessChecklist = () => {
-    if (checklistsState[processId]) {
-      return checklistsState[processId];
+    const saved = checklistsState[processId];
+
+    if (saved) {
+      const savedItemsById = new Map(saved.items.map(item => [item.id, item]));
+      const mergedItems = processData.items.map(definedItem => {
+        const existing = savedItemsById.get(definedItem.id);
+        if (existing) {
+          // Mantener el estado/observaciones guardados, pero refrescar
+          // criterion/evidence/standard por si se actualizó la definición.
+          return { ...definedItem, ...existing };
+        }
+        // Criterio nuevo que no existía antes: se añade como Pendiente.
+        return {
+          ...definedItem,
+          status: 'pending' as ChecklistStatus,
+          observations: '',
+          lastUpdated: Date.now(),
+        };
+      });
+
+      const hasNewItems = mergedItems.length !== saved.items.length;
+      const merged = { ...saved, processName: processData.processName, items: mergedItems };
+
+      if (hasNewItems) {
+        setChecklistsState({
+          ...checklistsState,
+          [processId]: merged,
+        });
+      }
+
+      return merged;
     }
-    
+
     const initialChecklist = {
       processId,
       processName: processData.processName,
